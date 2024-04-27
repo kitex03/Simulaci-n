@@ -4,28 +4,30 @@ Mis proyectos de la asignatura de Simulación de 3º de ingeniería Multimedia.
 ## Organización del repositorio
 ```
     ├── src/
-    │   └── Tema_1/
-    │       └── BolaRotar
-    │       │   ├── BolaRotar.pde
-    │       │   ├── BolaRotar.md
-    │       │   └── windows-amd64
-    │       │       └── BolaRotar.exe
-    │       └── MontanaRusa
-    │       │   ├── MontanaRusa.pde
-    │       │   ├── MontanaRusa.md
-    │       │   └── windows-amd64
-    │       │       └── MontanaRusa.exe
-    │       └── MovimentoCircular
-    │       │   ├── MovimentoCircular.pde
-    │       │   ├── MovimentoCircular.md
-    │       │   └── windows-amd64
-    │       │       └── BolaRotar.exe
-    │       └── FuncionesOscilatorias
-    │           ├── FuncionesOscilatorias.pde
-    │           ├── FuncionesOscilatorias.md
-    │           └── windows-amd64
-    │               └── FuncionesOScilatorias.exe
-
+    │   └── Tema1/
+    │   |   └── BolaRotar
+    │   |   │   ├── BolaRotar.pde
+    │   |   │   └── BolaRotar.md
+    │   |   └── MontanaRusa
+    │   |   │   ├── MontanaRusa.pde
+    │   |   │   └── MontanaRusa.md
+    │   |   └── PlanoInclinado
+    │   |   │   ├── PlanoInclinado.pde
+    │   |   │   └── PlanoInclinado.md
+    │   |   └── BubleShooter
+    │   |   │   ├── BubleShooter.pde
+    │   |   │   └── bubleShooter.md
+    │   |   └── MetodosIntegraciónNumerica
+    │   |   │   ├── MetodosIntegraciónNumerica.pde
+    │   |   │   └── MetodosIntegraciónNumerica.md
+    │   |   └── AceleracionCoche
+    │   |   │   ├── AceleracionCoche.pde
+    │   |   │   └── AceleracionCoche.md
+    │   |   └── FuncionesOscilatorias
+    │   |       ├── FuncionesOscilatorias.pde
+    │   |       └── FuncionesOscilatorias.md
+    |   |
+    |   └── Tema2/
+    |       └──
 ```
 
-Todos los proyectos tienen un ejecutable de windows, un .exe, para no tener que descargarse la aplicacion de processing, en el caso de que quieras probar o ver las simulaciones.
