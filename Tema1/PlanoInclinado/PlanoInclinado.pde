@@ -38,13 +38,11 @@ float         _simTime;
 PVector calculateAcceleration(PVector s, PVector v)
 {
     PVector normal = new PVector(-cos(0), sin(0));
-    println("Normal: " + normal);
     normal.normalize();
     PVector Froz  = PVector.mult(normal, -K*v.mag());
     PVector Fpeso = PVector.mult(normal, PVector.mult(G,M).mag());
     PVector SumF= PVector.add(Fpeso, Froz);
-    println("Froz: " + Froz + " Fpeso: " + Fpeso + " SumF: " + SumF);
-  
+    
     PVector a = SumF.div(M);
 
     return a;

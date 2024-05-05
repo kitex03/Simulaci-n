@@ -40,7 +40,6 @@ PVector calculateAcceleration(PVector s, PVector v)
         }
     } else {
         Froz = PVector.mult(v,-K);
-        println(Froz);
     }
 
     PVector SumF  = PVector.add(Froz, Facelerador);
