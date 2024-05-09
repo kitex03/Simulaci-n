@@ -121,7 +121,6 @@ void updateSimulation()
         PVector v = new PVector(VELOCIDAD_PARTICULAS/2 * -cos(angulo), VELOCIDAD_PARTICULAS * -sin(angulo));
         _ps.addParticle(_M, s, v, RADIO_PARTICULA, COLOR_PARTICULA, L);
    }
-    
     _numParticles = _ps.getNumParticles();
     _energy = _ps.getTotalEnergy();
     

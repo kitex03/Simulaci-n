@@ -130,7 +130,6 @@ void updateSimulation()
         splashed = true;
     }
     
-    
     _simTime += _timeStep;  // Incrementar el tiempo simulado
 
 }

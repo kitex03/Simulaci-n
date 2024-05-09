@@ -6,7 +6,7 @@ PVector _s  = new PVector(0.0,0.0);   // Particula
 PVector _p = new PVector(0.0,0.0);   // Particula que crea el buble shooter
 PVector _e = new PVector(0.0,0.0);   // Posicion del emisor del buble shooter
 PVector _direccion = new PVector(0.0,0.0);   // Direccion de la particula que se lanza
-int velocidad = 80;   // Velocidad de la particula que se lanza
+int velocidad = 120;   // Velocidad de la particula que se lanza
 PVector _a  = new PVector();   // Accleration of the particle (pixels/(s*s))
 
 /////////////////////////////////////////////////////////////////////
@@ -18,7 +18,7 @@ float         _simTime;
 
 void settings()
 {
-    size(600, 600);
+    size(1600, 900);
 }
 
 void setup()
