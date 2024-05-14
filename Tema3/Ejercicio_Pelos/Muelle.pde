@@ -1,38 +1,42 @@
 // Class for a simple spring with no damping
 public class Muelle
 {
-   PVector _pos1;   // First end of the spring (m)
-   PVector _pos2;   // Second end of the spring (m)
+   Particle _p1;   // First end of the spring (m)
+   Particle _p2;   // Second end of the spring (m)
    float _Ke;       // Elastic constant (N/m)
    float _l0;       // Rest length (m)
 
-   float _energy;   // Energy (J)
    PVector _F;      // Force applied by the spring towards pos1 (the force towards pos2 is -_F) (N)
-   //
-   //
-   //
 
-   Muelle(PVector pos1, PVector pos2, float Ke, float l0)
+
+   Muelle(Particle p1, Particle p2, float Ke, float l0)
    {
-      _pos1 = pos1;
-      _pos2 = pos2;
+      _p1 = p1;
+      _p2 = p2;
       _Ke = Ke;
       _l0 = l0;
 
-      _energy = 0.0;
       _F = new PVector(0.0, 0.0);
-      //
-      //
    }
 
    void setPos1(PVector pos1)
    {
-      _pos1 = pos1;
+      _p1.setPos(pos1);
+   }
+
+   Particle getParticle1()
+   {
+      return _p1;
+   }
+
+   Particle getParticle2()
+   {
+      return _p2;
    }
 
    void setPos2(PVector pos2)
    {
-      _pos2 = pos2;
+      _p2.setPos(pos2);
    }
 
    void setKe(float Ke)
@@ -47,31 +51,16 @@ public class Muelle
 
    void update()
    {
-      /* Este método debe actualizar todas las variables de la clase 
-         que cambien según avanza la simulación, siguiendo las ecuaciones 
-         de un muelle sin amortiguamiento.
-       */     
-      
-      PVector L = PVector.sub(_pos2,_pos1);
+      PVector L = PVector.sub(_p2.getPosition(),_p1.getPosition());
       float Lmodulo = L.mag();
       PVector Lunitario = L.normalize();
       float elongacion = Lmodulo - _l0;
       float fuerza = -_Ke * elongacion;
       _F = PVector.mult(Lunitario, fuerza);
-       
-      updateEnergy();
+      _p1.addExternalForce(PVector.mult(_F, -1.0));
+      _p2.addExternalForce(_F);
    }
 
-   void updateEnergy()
-   {
-      PVector L = PVector.sub(_pos2,_pos1);
-      _energy = 0.5*_Ke*L.magSq(); 
-   }
-
-   float getEnergy()
-   {
-      return _energy;
-   }
 
    PVector getForce()
    {

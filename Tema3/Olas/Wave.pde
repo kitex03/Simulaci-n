@@ -16,11 +16,10 @@ abstract class Wave
   {
     C = _C;
     A = _a;
-    D = _srcDir.copy().normalize();
+    D = _srcDir.copy();
     W = (2 * PI) / _L;
-    float S = (2 * A) / _L;
-    Q = PI * S * C;
-    phi = 0.0;
+    Q = 0.5;
+    phi = C * W;
 
   }
   
@@ -42,13 +41,15 @@ class WaveDirectional extends Wave
   
   public PVector getVariation(float x, float y, float z, float time)
   {
+
     PVector s = new PVector(x,y,z);
+    PVector variacion = new PVector(0,0,0);
     
     float d_por_s = PVector.dot(D,s);
     float velocidad_tiempo = C * time;
-    s.z = A * sin(W * (d_por_s + velocidad_tiempo));
+    variacion.y = A * sin(W * (d_por_s + velocidad_tiempo));
 
-    return s;
+    return variacion;
   }
 }
 
@@ -68,12 +69,14 @@ class WaveRadial extends Wave
   public PVector getVariation(float x, float y, float z, float time)
   {
     PVector s = new PVector(x,y,z);
+    PVector variacion = new PVector(0,0,0);
+
 
     PVector dist = PVector.sub(s,D);
 
-    s.z = A * cos(W * (dist.mag() - C * time));
+    variacion.y = A * cos(W * (dist.mag() - C * time));
 
-    return s; 
+    return variacion; 
   }
 }
 
@@ -95,12 +98,13 @@ class WaveGerstner extends Wave
   
   public PVector getVariation(float x, float y, float z, float time)
   { 
-    PVector s = new PVector(x,y,z);
+    PVector s = new PVector(x,0.0,z);
+    PVector variacion = new PVector(0,0,0);
+    
+    variacion.x = ((Q*A) * D.x * cos(W * (PVector.dot(D,s) + phi * time)));
+    variacion.z = ((Q*A) * D.z * cos(W * (PVector.dot(D,s) + phi * time)));
+    variacion.y = A * sin(W * (PVector.dot(D,s) + phi * time));
 
-    s.x += ((Q*A) * D.x * cos(W * PVector.dot(D,s) + phi * time));
-    s.y += ((Q*A) * D.y * cos(W * PVector.dot(D,s) + phi * time));
-    s.z = A * sin(W * PVector.dot(D,s) + phi * time);
-
-    return s;
+    return variacion;
   }
 }
